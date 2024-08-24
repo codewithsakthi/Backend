@@ -15,8 +15,12 @@ connectDatabase();
 
 const app = express();
 
+// Configure CORS to allow requests from http://localhost:3000
+app.use(cors({
+  origin: 'http://localhost:3000'  // Replace with the appropriate origin
+}));
+
 app.use(express.json());
-app.use(cors());
 
 app.use("/", IndexRoute);
 
